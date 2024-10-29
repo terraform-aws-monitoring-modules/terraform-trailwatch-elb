@@ -1,4 +1,15 @@
-# aws-monitoring-elb
+<p align="center">
+  <a href="" title=""><img src="https://raw.githubusercontent.com/terraform-trailwatch-modules/art/refs/heads/main/logo.jpg" height="100" alt=""></a>
+</p>
+
+<h1 align="center">Elastic Load Balancer</h1>
+
+<p align="center">
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-elb/releases" title="Releases"><img src="https://img.shields.io/badge/Release-1.0.1-1d1d1d?style=for-the-badge" alt=""></a>
+  <a href="https://github.com/terraform-trailwatch-modules/terraform-trailwatch-elb/blob/main/LICENSE" title=""><img src="https://img.shields.io/badge/License-MIT-1d1d1d?style=for-the-badge" alt=""></a>
+</p>
+
+## About
 This Terraform module creates CloudWatch Log Metric Filters and associated Alarms for monitoring Elastic Load Balancers (ELBs) based on specified event names. It helps ensure that critical changes to ELBs are monitored effectively and alerts are sent to a pre-existing SNS topic.
 
 ## Features
@@ -27,8 +38,8 @@ This Terraform module creates CloudWatch Log Metric Filters and associated Alarm
 
 ## Simple Example
 ```hcl
-module "aws_monitoring_elb" {
-  source                         = "path/to/module"
+module "terraform_trailwatch_elb" {
+  source                         = "terraform-trailwatch-modules/elb/trailwatch"
   elb_names                      = ["acme-stage-elb", "acme-prod-elb"]
   cw_log_group_name              = "the-cloudtrail-log-group"
   cw_metric_filter_alarm_actions = ["arn:aws:sns:region:account-id:sns-topic"]
@@ -38,8 +49,8 @@ module "aws_monitoring_elb" {
 ## Advanced Example
 
 ```hcl
-module "aws_monitoring_elb" {
-  source                                     = "path/to/module"
+module "terraform_trailwatch_elb" {
+  source                                     = "terraform-trailwatch-modules/elb/trailwatch"
   elb_names                                  = ["acme-stage-elb", "acme-prod-elb"]
   elb_event_names                            = ["DeleteLoadBalancer", "ModifyLoadBalancerAttributes"]
   cw_log_group_name                          = "the-cloudtrail-log-group"
