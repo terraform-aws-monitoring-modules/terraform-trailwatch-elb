@@ -9,3 +9,8 @@
 - Automatic creation of CloudWatch metric filters based on specified ELBs and their respective events.
 - Alarms triggered based on defined thresholds for the specified metrics.
 - Detailed variable descriptions for easy customization and configuration.
+
+## [1.0.1] - 2024-10-29
+
+### Changed
+- Updated Terraform examples in [`README.md`](README.md) to reference the module source from the Terraform Registry.
