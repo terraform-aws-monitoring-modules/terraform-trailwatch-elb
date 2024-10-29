@@ -1,4 +1,4 @@
-resource "aws_cloudwatch_log_metric_filter" "elb_metric_filter" {
+resource "aws_cloudwatch_log_metric_filter" "metric_filter" {
   count          = length(var.elb_names)
   log_group_name = var.cw_log_group_name
   name           = "${var.elb_names[count.index]}-metric-filter"
@@ -11,7 +11,7 @@ resource "aws_cloudwatch_log_metric_filter" "elb_metric_filter" {
   }
 }
 
-resource "aws_cloudwatch_metric_alarm" "elb_metric_filter_alarm" {
+resource "aws_cloudwatch_metric_alarm" "metric_filter_alarm" {
   count               = length(var.elb_names)
   alarm_name          = "${var.elb_names[count.index]}-metric-filter-alarm"
   comparison_operator = var.cw_metric_filter_alarm_comparison_operator
